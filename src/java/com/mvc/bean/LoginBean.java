@@ -1,6 +1,6 @@
 package com.mvc.bean;
  
-//As I have already told it contains only setters and getters
+
  
 public class LoginBean
  {

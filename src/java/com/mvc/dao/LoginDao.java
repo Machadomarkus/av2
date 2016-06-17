@@ -12,7 +12,7 @@ import java.sql.SQLException;
  public String authenticateUser(LoginBean loginBean) throws SQLException
  {
  
-String email = loginBean.getEmail(); //Keeping user entered values in temporary variables.
+String email = loginBean.getEmail(); 
 String pass = loginBean.getPass();
 
 Connection con = null;
@@ -24,13 +24,13 @@ String userEmailDB = "";
 
  
 
- con = DBConnection.createConnection(); //establishing connection
- statement = con.createStatement(); //Statement is used to write queries. Read more about it.
- resultSet = statement.executeQuery("select * from login"); //Here table name is users and userName,password are columns. fetching all the records and storing in a resultSet.
+ con = DBConnection.createConnection();
+ statement = con.createStatement(); 
+ resultSet = statement.executeQuery("select * from login"); 
  
-while(resultSet.next()) // Until next row is present otherwise it return false
+while(resultSet.next()) 
  {
-  userEmailDB = resultSet.getString("email"); //fetch the values present in database
+  userEmailDB = resultSet.getString("email"); 
   passDB = resultSet.getString("pass");
   
   
@@ -38,10 +38,10 @@ while(resultSet.next()) // Until next row is present otherwise it return false
  
    if(email.equals(userEmailDB) && pass.equals(passDB))
    {
-      return "SUCCESS"; ////If the user entered values are already present in database, which means user has already registered so I will return SUCCESS message.
+      return "SUCCESS"; 
    }
  }
  
- return "Invalid user credentials"; // Just returning appropriate message otherwise
+ return "Invalid user credentials"; 
  }
  }
